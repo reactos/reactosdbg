@@ -170,12 +170,14 @@
             // 
             // RawTrafficTextBox
             // 
+            this.RawTrafficTextBox.AcceptsReturn = true;
             this.RawTrafficTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RawTrafficTextBox.Location = new System.Drawing.Point(0, 0);
             this.RawTrafficTextBox.Name = "RawTrafficTextBox";
             this.RawTrafficTextBox.Size = new System.Drawing.Size(385, 20);
             this.RawTrafficTextBox.TabIndex = 0;
             this.RawTrafficTextBox.Tag = "0";
+            this.RawTrafficTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RawTrafficTextBox_KeyPress);
             this.RawTrafficTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.RawTrafficTextBox_KeyUp);
             // 
             // RawTraffic

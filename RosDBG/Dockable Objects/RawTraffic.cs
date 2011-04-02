@@ -212,6 +212,13 @@ namespace RosDBG
         #endregion
 
         #region events
+        private void RawTrafficTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Stop the enter key from 'pinging'
+            if (RawTrafficTextBox.Text.Length > 0 && e.KeyChar == 13)
+                e.Handled = true;
+        }
+
         private void RawTrafficTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -361,6 +368,5 @@ namespace RosDBG
         {
             RawTrafficText.Clear();
         }
-
     }
 }
