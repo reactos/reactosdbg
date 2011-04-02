@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{FB776BFE-D2C2-465E-B713-6AD82CAE1A39}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -332,6 +332,9 @@
     <None Include="Resources\Pause.bmp" />
     <Content Include="Resources\emblem-system.ico" />
     <Content Include="Resources\internet-web-browser.ico" />
+    <None Include="Resources\StepIn.png" />
+    <None Include="Resources\StepOut.png" />
+    <None Include="Resources\StepOver.png" />
     <Content Include="Resources\utilities-terminal.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

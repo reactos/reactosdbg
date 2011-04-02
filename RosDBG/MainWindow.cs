@@ -212,21 +212,17 @@ namespace RosDBG
         {
             if (mConnection.ConnectionMode == DebugConnection.Mode.ClosedMode)
             {
-                breakToolStripMenuItem.Enabled = false;
-                nextToolStripMenuItem.Enabled = false;
-                stepToolStripMenuItem.Enabled = false;
-                continueToolStripMenuItem.Enabled = false;
-                continueToolStripButton.Enabled = false;
-                breakToolStripButton.Enabled = false;
+                continueToolStripButton.Enabled = continueToolStripMenuItem.Enabled = false;
+                breakToolStripButton.Enabled = breakToolStripMenuItem.Enabled = false;
+                nextToolStripButton.Enabled = nextToolStripMenuItem.Enabled = false;
+                stepToolStripButton.Enabled = stepToolStripMenuItem.Enabled = false;
             }
             else
             {
-                breakToolStripMenuItem.Enabled = mRunning;
-                breakToolStripButton.Enabled = mRunning;
-                nextToolStripMenuItem.Enabled = !mRunning;
-                stepToolStripMenuItem.Enabled = !mRunning;
-                continueToolStripMenuItem.Enabled = !mRunning;
-                continueToolStripButton.Enabled = !mRunning;
+                continueToolStripButton.Enabled = continueToolStripMenuItem.Enabled = !mRunning;
+                breakToolStripButton.Enabled = breakToolStripMenuItem.Enabled = mRunning;
+                nextToolStripButton.Enabled = nextToolStripMenuItem.Enabled = !mRunning;
+                stepToolStripButton.Enabled = stepToolStripMenuItem.Enabled = !mRunning;
             }
         }
 
@@ -430,6 +426,16 @@ namespace RosDBG
         private void printToolStripButton_Click(object sender, EventArgs e)
         {
             ((ToolWindow)dockPanel.ActiveDocument.DockHandler.Form).Print(false);
+        }
+
+        private void stepToolStripButton_Click(object sender, EventArgs e)
+        {
+            stepToolStripMenuItem_Click(sender, e);
+        }
+
+        private void nextToolStripButton_Click(object sender, EventArgs e)
+        {
+            nextToolStripMenuItem_Click(sender, e);
         }
 
         private void externalToolsToolStripMenuItem_Click(object sender, EventArgs e)
