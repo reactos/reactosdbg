@@ -11,7 +11,7 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace RosDBG
 {
-    [DebugControl, BuildAtStartup]
+    [DebugControl, BuildAtStartup, Obsolete("Replaced by StatefulRegisterView")]
     public partial class RegisterView : ToolWindow, IUseDebugConnection
     {
         bool mGridEnabled;
@@ -37,18 +37,6 @@ namespace RosDBG
             }
         }
 
-        void UpdateGridEnabled()
-        {
-            RegisterGrid.Enabled = mGridEnabled;
-        }
-
-        void ClearRegs()
-        {
-            if (mRegisters != null)
-                mRegisters.Clear();
-            UpdateGrid();
-        }
-
         void DebugConnectionModeChangedEvent(object sender, DebugConnectionModeChangedEventArgs args)
         {
             if (mConnection.ConnectionMode == DebugConnection.Mode.ClosedMode)
@@ -61,6 +49,24 @@ namespace RosDBG
             Invoke(Delegate.CreateDelegate(typeof(NoParamsDelegate), this, "UpdateGridEnabled"));
         }
 
+        void DebugRegisterChangeEvent(object sender, DebugRegisterChangeEventArgs args)
+        {
+            mRegisters = args.Registers;
+            Invoke(Delegate.CreateDelegate(typeof(NoParamsDelegate), this, "UpdateGrid"));
+        }
+
+        void ClearRegs()
+        {
+            if (mRegisters != null)
+                mRegisters.Clear();
+            UpdateGrid();
+        }
+
+        void UpdateGridEnabled()
+        {
+            RegisterGrid.Enabled = mGridEnabled;
+        }
+
         void UpdateGrid()
         {
             RegisterGrid.SelectedObject = null;
@@ -68,10 +74,5 @@ namespace RosDBG
             RegisterGrid.Refresh();
         }
 
-        void DebugRegisterChangeEvent(object sender, DebugRegisterChangeEventArgs args)
-        {
-            mRegisters = args.Registers;
-            Invoke(Delegate.CreateDelegate(typeof(NoParamsDelegate), this, "UpdateGrid"));
-        }
     }
 }

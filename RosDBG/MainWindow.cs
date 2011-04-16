@@ -21,7 +21,8 @@ namespace RosDBG
 
     public partial class MainWindow : Form, IShell
     {
-        private RegisterView m_RegView = new RegisterView();
+        //private RegisterView m_RegView = new RegisterView();
+        private StatefulRegisterView m_RegView = new StatefulRegisterView();
         private BackTrace m_BackTrace = new BackTrace();
         private RawTraffic m_RawTraffic = new RawTraffic();
         private Locals m_Locals = new Locals();
