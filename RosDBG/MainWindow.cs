@@ -28,7 +28,8 @@ namespace RosDBG
         private Locals m_Locals = new Locals();
         private MemoryWindow m_MemoryWindow = new MemoryWindow();
         private ProcThread m_ProcThread = new ProcThread();
-        private Modules m_Modules = new Modules(); 
+        private Modules m_Modules = new Modules();
+        private BreakpointWindow m_Breakpoints = new BreakpointWindow();
 
         private bool mRunning;
         private DebugConnection.Mode mConnectionMode;
@@ -60,9 +61,12 @@ namespace RosDBG
             RegisterControl(m_MemoryWindow);
             RegisterControl(m_ProcThread);
             RegisterControl(m_Modules);
+            RegisterControl(m_Breakpoints);
 
             m_Locals.Show(dockPanel, DockState.DockRight);
             m_RegView.Show(dockPanel, DockState.DockRight);
+            m_Breakpoints.Show(dockPanel, DockState.DockRight);
+            m_RegView.Activate();
             m_BackTrace.Show(dockPanel, DockState.DockBottom);
             m_RawTraffic.Show(dockPanel);
             m_Modules.Show(dockPanel);

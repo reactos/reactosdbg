@@ -26,6 +26,16 @@ namespace DebugProtocol
     }
     public delegate void RegisterChangeEventHandler(object sender, RegisterChangeEventArgs args);
 
+    public class BreakpointChangeEventArgs : EventArgs
+    {
+        public readonly IList<Breakpoint> Breakpoints;
+        public BreakpointChangeEventArgs(IEnumerable<Breakpoint> breakpoints)
+        {
+            Breakpoints = new List<Breakpoint>(breakpoints);
+        }
+    }
+    public delegate void BreakpointChangeEventHandler(object sender, BreakpointChangeEventArgs args);
+
     public class SignalDeliveredEventArgs : EventArgs
     {
         public readonly int Signal;
@@ -96,11 +106,9 @@ namespace DebugProtocol
 
     public interface IDebugProtocol
     {
-        void SetBreakpoint(Breakpoint bp);
-        void RemoveBreakpoint(Breakpoint bp);
-
         event ConsoleOutputEventHandler ConsoleOutputEvent;
         event RegisterChangeEventHandler RegisterChangeEvent;
+        event BreakpointChangeEventHandler BreakpointChangeEvent;
         event SignalDeliveredEventHandler SignalDeliveredEvent;
         event RemoteGDBErrorHandler RemoteGDBError;
         event MemoryUpdateEventHandler MemoryUpdateEvent;
@@ -118,6 +126,12 @@ namespace DebugProtocol
         void Next();
         void Break();
         void Go(ulong address);
+
+        void GetBreakpoints();
+        void SetBreakpoint(Breakpoint bp);
+        void RemoveBreakpoint(int id);
+        void EnableBreakpoint(int id);
+        void DisableBreakpoint(int id);
 
         void SetProcess(ulong pid);
         void SetThread(ulong tid);

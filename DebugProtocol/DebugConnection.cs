@@ -42,6 +42,16 @@ namespace DebugProtocol
     }
     public delegate void DebugRegisterChangeEventHandler(object sender, DebugRegisterChangeEventArgs args);
 
+    public class DebugBreakpointChangeEventArgs : EventArgs
+    {
+        public readonly IList<Breakpoint> Breakpoints;
+        public DebugBreakpointChangeEventArgs(IList<Breakpoint> breakpoints)
+        {
+            Breakpoints = breakpoints;
+        }
+    }
+    public delegate void DebugBreakpointChangeEventHandler(object sender, DebugBreakpointChangeEventArgs args);
+
     public class DebugRunningChangeEventArgs : EventArgs
     {
         public readonly bool Running;
@@ -180,6 +190,7 @@ namespace DebugProtocol
         #endregion
 
         public event DebugRegisterChangeEventHandler DebugRegisterChangeEvent;
+        public event DebugBreakpointChangeEventHandler DebugBreakpointChangeEvent;
         public event DebugConnectedEventHandler DebugConnectionConnectedEvent;
         public event DebugConnectionModeChangedEventHandler DebugConnectionModeChangedEvent;
         public event DebugRunningChangeEventHandler DebugRunningChangeEvent;
@@ -219,6 +230,7 @@ namespace DebugProtocol
         {
             //set up tab handlers
             mKdb.RegisterChangeEvent += RegisterChangeEvent;
+            mKdb.BreakpointChangeEvent += BreakpointChangeEvent;
             mKdb.ModuleListEvent += ModuleListEvent;
             mKdb.MemoryUpdateEvent += MemoryUpdateEvent;
             mKdb.ProcessListEvent += ProcessListEvent;
@@ -292,7 +304,7 @@ namespace DebugProtocol
                 ConnectEventHandlers();
                 Running = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ConnectionMode = Mode.ClosedMode;
                 //error signal?
@@ -441,6 +453,12 @@ namespace DebugProtocol
             if (DebugRegisterChangeEvent != null)
                 DebugRegisterChangeEvent(this, new DebugRegisterChangeEventArgs(mRegisters));
         }
+
+        void BreakpointChangeEvent(object sender, BreakpointChangeEventArgs args)
+        {
+            if (DebugBreakpointChangeEvent != null)
+                DebugBreakpointChangeEvent(this, new DebugBreakpointChangeEventArgs(args.Breakpoints));
+        }        
 
         public void Break()
         {
