@@ -82,7 +82,7 @@ namespace RosDBG
         private void BugzillaInput_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Return)
-                BrowserView.Navigate("http://www.reactos.org/bugzilla/show_bug.cgi?id=" + ((ToolStripTextBox)sender).Text);
+                btnGoJIRA_Click(null, null);
         }
 
         private bool pIsCmdEnabled(string Cmd)
@@ -159,6 +159,36 @@ namespace RosDBG
                 IHTMLDocument2 htmlDocument = (mshtml.IHTMLDocument2)BrowserView.Document.DomDocument;
                 htmlDocument.execCommand("print", ShowDialog, null);
             }
+        }
+
+        private string GetJiraURL()
+        {
+            string url = "https://jira.reactos.org/browse/";
+            string raw = tbJiraInput.Text;
+
+            if (string.IsNullOrEmpty(raw))
+                return null;
+
+            int resultTemp = 0;
+            if(int.TryParse(raw[0].ToString(), out resultTemp))
+            {
+                // Starts with a number, so add "CORE-" to the start
+                raw = raw.Insert(0, "CORE-");
+            }
+
+            url += raw;
+
+            return url;
+        }
+
+        private void btnGoJIRA_Click(object sender, EventArgs e)
+        {
+            string url = GetJiraURL();
+
+            if (url == null)
+                MessageBox.Show("Wrong JIRA issue");
+            else
+                BrowserView.Navigate(url);
         }
     }
 }

@@ -40,7 +40,8 @@
             this.navPaste = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.BugzillaInput = new System.Windows.Forms.ToolStripTextBox();
+            this.tbJiraInput = new System.Windows.Forms.ToolStripTextBox();
+            this.btnGoJIRA = new System.Windows.Forms.ToolStripButton();
             this.BrowserView = new System.Windows.Forms.WebBrowser();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.BrowserView);
-            this.splitContainer1.Size = new System.Drawing.Size(427, 281);
+            this.splitContainer1.Size = new System.Drawing.Size(511, 281);
             this.splitContainer1.SplitterDistance = 27;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -86,10 +87,11 @@
             this.navPaste,
             this.toolStripSeparator1,
             this.toolStripLabel1,
-            this.BugzillaInput});
+            this.tbJiraInput,
+            this.btnGoJIRA});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(427, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(511, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -171,14 +173,24 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(48, 22);
-            this.toolStripLabel1.Text = "Bugzilla";
+            this.toolStripLabel1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripLabel1.Text = "JIRA";
             // 
-            // BugzillaInput
+            // tbJiraInput
             // 
-            this.BugzillaInput.Name = "BugzillaInput";
-            this.BugzillaInput.Size = new System.Drawing.Size(50, 23);
-            this.BugzillaInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BugzillaInput_KeyUp);
+            this.tbJiraInput.Name = "tbJiraInput";
+            this.tbJiraInput.Size = new System.Drawing.Size(75, 25);
+            this.tbJiraInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BugzillaInput_KeyUp);
+            // 
+            // btnGoJIRA
+            // 
+            this.btnGoJIRA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnGoJIRA.Image = ((System.Drawing.Image)(resources.GetObject("btnGoJIRA.Image")));
+            this.btnGoJIRA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGoJIRA.Name = "btnGoJIRA";
+            this.btnGoJIRA.Size = new System.Drawing.Size(40, 22);
+            this.btnGoJIRA.Text = "Open";
+            this.btnGoJIRA.Click += new System.EventHandler(this.btnGoJIRA_Click);
             // 
             // BrowserView
             // 
@@ -186,7 +198,7 @@
             this.BrowserView.Location = new System.Drawing.Point(0, 0);
             this.BrowserView.MinimumSize = new System.Drawing.Size(20, 20);
             this.BrowserView.Name = "BrowserView";
-            this.BrowserView.Size = new System.Drawing.Size(427, 250);
+            this.BrowserView.Size = new System.Drawing.Size(511, 250);
             this.BrowserView.TabIndex = 0;
             this.BrowserView.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.BrowserView_Navigating);
             // 
@@ -219,19 +231,19 @@
             this.copyToolStripMenuItem.Enabled = false;
             this.copyToolStripMenuItem.Image = global::RosDBG.Properties.Resources.copyToolStripMenuItem_Image;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.copyToolStripMenuItem.Text = "&Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(117, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.selectAllToolStripMenuItem.Text = "&Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
@@ -240,7 +252,7 @@
             this.AllowEndUserDocking = false;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 281);
+            this.ClientSize = new System.Drawing.Size(511, 281);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -272,7 +284,7 @@
         private System.Windows.Forms.ToolStripButton navPaste;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox BugzillaInput;
+        private System.Windows.Forms.ToolStripTextBox tbJiraInput;
         private System.Windows.Forms.ToolStripButton navReload;
         private System.Windows.Forms.ToolStripButton navHome;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -280,5 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnGoJIRA;
     }
 }
