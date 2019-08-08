@@ -381,6 +381,6 @@
   <PropertyGroup>
     <PostBuildEvent>copy "$(SolutionDir)dbghelptest\dbghelp.dll" "$(TargetDir)"
 copy "$(TargetPath)" "$(SolutionDir)temp.exe"</PostBuildEvent>
-    <PreBuildEvent>"$(SolutionDir)buildhelper" "$(ProjectDir)Properties\AssemblyInfo.cs"</PreBuildEvent>
+    <PreBuildEvent>REM "$(SolutionDir)buildhelper" "$(ProjectDir)Properties\AssemblyInfo.cs"</PreBuildEvent>
   </PropertyGroup>
 </Project>
