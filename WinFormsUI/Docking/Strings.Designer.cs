@@ -19,7 +19,7 @@ namespace WeifenLuo.WinFormsUI.Docking {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -75,6 +75,15 @@ namespace WeifenLuo.WinFormsUI.Docking {
         internal static string Category_DockingNotification {
             get {
                 return ResourceManager.GetString("Category_DockingNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Performance.
+        /// </summary>
+        internal static string Category_Performance {
+            get {
+                return ResourceManager.GetString("Category_Performance", resourceCulture);
             }
         }
         
@@ -331,15 +340,6 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Press SHIFT for docking to full side..
-        /// </summary>
-        internal static string DockIndicator_ToolTipText {
-            get {
-                return ResourceManager.GetString("DockIndicator_ToolTipText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid Content: ActiveContent must be one of the visible contents, or null if there is no visible content..
         /// </summary>
         internal static string DockPane_ActiveContent_InvalidValue {
@@ -412,15 +412,6 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FloatWindow property can not be set to &quot;null&quot; when DockState is DockState.Float..
-        /// </summary>
-        internal static string DockPane_FloatWindow_InvalidValue {
-            get {
-                return ResourceManager.GetString("DockPane_FloatWindow_InvalidValue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid Content: Content not within the collection..
         /// </summary>
         internal static string DockPane_SetContentIndex_InvalidContent {
@@ -448,38 +439,20 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Auto Hide.
-        /// </summary>
-        internal static string DockPaneCaption_ToolTipAutoHide {
-            get {
-                return ResourceManager.GetString("DockPaneCaption_ToolTipAutoHide", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Close.
-        /// </summary>
-        internal static string DockPaneCaption_ToolTipClose {
-            get {
-                return ResourceManager.GetString("DockPaneCaption_ToolTipClose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Options.
-        /// </summary>
-        internal static string DockPaneCaption_ToolTipOptions {
-            get {
-                return ResourceManager.GetString("DockPaneCaption_ToolTipOptions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid Content: The content must be auto-hide state and associates with this DockPanel..
         /// </summary>
         internal static string DockPanel_ActiveAutoHideContent_InvalidValue {
             get {
                 return ResourceManager.GetString("DockPanel_ActiveAutoHideContent_InvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Occurs when the value of the AutoHideWindow&apos;s ActiveContent changed..
+        /// </summary>
+        internal static string DockPanel_ActiveAutoHideContentChanged_Description {
+            get {
+                return ResourceManager.GetString("DockPanel_ActiveAutoHideContentChanged_Description", resourceCulture);
             }
         }
         
@@ -585,9 +558,9 @@ namespace WeifenLuo.WinFormsUI.Docking {
         /// <summary>
         ///   Looks up a localized string similar to The visual skin to use when displaying the docked windows..
         /// </summary>
-        internal static string DockPanel_DockPanelSkin {
+        internal static string DockPanel_DockPanelSkin_Description {
             get {
-                return ResourceManager.GetString("DockPanel_DockPanelSkin", resourceCulture);
+                return ResourceManager.GetString("DockPanel_DockPanelSkin_Description", resourceCulture);
             }
         }
         
@@ -610,6 +583,15 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Occurs when a document or pane is dragged within the dock panel..
+        /// </summary>
+        internal static string DockPanel_DocumentDragged_Description {
+            get {
+                return ResourceManager.GetString("DockPanel_DocumentDragged_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The style of the document window..
         /// </summary>
         internal static string DockPanel_DocumentStyle_Description {
@@ -621,9 +603,9 @@ namespace WeifenLuo.WinFormsUI.Docking {
         /// <summary>
         ///   Looks up a localized string similar to Determines where the tab strip for Document style content is drawn..
         /// </summary>
-        internal static string DockPanel_DocumentTabStripLocation {
+        internal static string DockPanel_DocumentTabStripLocation_Description {
             get {
-                return ResourceManager.GetString("DockPanel_DocumentTabStripLocation", resourceCulture);
+                return ResourceManager.GetString("DockPanel_DocumentTabStripLocation_Description", resourceCulture);
             }
         }
         
@@ -709,6 +691,15 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shows the hidden autohide content when hovering over the tab.  When disabled, the tab must be clicked to show the content..
+        /// </summary>
+        internal static string DockPanel_ShowAutoHideContentOnHover_Description {
+            get {
+                return ResourceManager.GetString("DockPanel_ShowAutoHideContentOnHover_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Determines if the document icon will be displayed in the tab strip..
         /// </summary>
         internal static string DockPanel_ShowDocumentIcon_Description {
@@ -718,20 +709,11 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Close.
+        ///   Looks up a localized string similar to Support deeply nested controls.  Disabling this setting may improve resize performance but may cause heavily nested content not to resize..
         /// </summary>
-        internal static string DockPaneStrip_ToolTipClose {
+        internal static string DockPanel_SupportDeeplyNestedContent_Description {
             get {
-                return ResourceManager.GetString("DockPaneStrip_ToolTipClose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Window List.
-        /// </summary>
-        internal static string DockPaneStrip_ToolTipWindowList {
-            get {
-                return ResourceManager.GetString("DockPaneStrip_ToolTipWindowList", resourceCulture);
+                return ResourceManager.GetString("DockPanel_SupportDeeplyNestedContent_Description", resourceCulture);
             }
         }
         
@@ -745,29 +727,56 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid Index: The index is out of range..
-        /// </summary>
-        internal static string FloatWindow_SetPaneIndex_InvalidIndex {
-            get {
-                return ResourceManager.GetString("FloatWindow_SetPaneIndex_InvalidIndex", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Invalid Pane: DockPane not within the collection..
-        /// </summary>
-        internal static string FloatWindow_SetPaneIndex_InvalidPane {
-            get {
-                return ResourceManager.GetString("FloatWindow_SetPaneIndex_InvalidPane", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid DockPanel..
         /// </summary>
         internal static string IDockDragSource_DockTo_InvalidPanel {
             get {
                 return ResourceManager.GetString("IDockDragSource_DockTo_InvalidPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before applying themes all dock contents must be closed..
+        /// </summary>
+        internal static string Theme_DockContentNotClosed {
+            get {
+                return ResourceManager.GetString("Theme_DockContentNotClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before applying themes all float windows must be closed..
+        /// </summary>
+        internal static string Theme_FloatWindowNotClosed {
+            get {
+                return ResourceManager.GetString("Theme_FloatWindowNotClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before applying themes all factories must be configured..
+        /// </summary>
+        internal static string Theme_MissingFactory {
+            get {
+                return ResourceManager.GetString("Theme_MissingFactory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DockPanel.Theme must be set to a valid theme..
+        /// </summary>
+        internal static string Theme_NoTheme {
+            get {
+                return ResourceManager.GetString("Theme_NoTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before applying themes all panes must be closed..
+        /// </summary>
+        internal static string Theme_PaneNotClosed {
+            get {
+                return ResourceManager.GetString("Theme_PaneNotClosed", resourceCulture);
             }
         }
     }

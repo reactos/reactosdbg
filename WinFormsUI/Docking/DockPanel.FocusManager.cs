@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -118,16 +117,30 @@ namespace WeifenLuo.WinFormsUI.Docking
                 }
             }
 
-            private LocalWindowsHook m_localWindowsHook;
-            private LocalWindowsHook.HookEventHandler m_hookEventHandler;
+            // Use a static instance of the windows hook to prevent stack overflows in the windows kernel.
+            [ThreadStatic]
+            private static LocalWindowsHook sm_localWindowsHook;
+            [ThreadStatic]
+            private static int _referenceCount = 0;
+
+            private readonly LocalWindowsHook.HookEventHandler m_hookEventHandler;
 
             public FocusManagerImpl(DockPanel dockPanel)
             {
                 m_dockPanel = dockPanel;
-                m_localWindowsHook = new LocalWindowsHook(Win32.HookType.WH_CALLWNDPROCRET);
+                if (Win32Helper.IsRunningOnMono)
+                    return;
                 m_hookEventHandler = new LocalWindowsHook.HookEventHandler(HookEventHandler);
-                m_localWindowsHook.HookInvoked += m_hookEventHandler;
-                m_localWindowsHook.Install();
+
+                // Ensure the windows hook has been created for this thread
+                if (sm_localWindowsHook == null)
+                {
+                    sm_localWindowsHook = new LocalWindowsHook(Win32.HookType.WH_CALLWNDPROCRET);
+                    sm_localWindowsHook.Install();
+                }
+
+                sm_localWindowsHook.HookInvoked += m_hookEventHandler;
+                ++_referenceCount;
             }
 
             private DockPanel m_dockPanel;
@@ -139,16 +152,25 @@ namespace WeifenLuo.WinFormsUI.Docking
             private bool m_disposed = false;
             protected override void Dispose(bool disposing)
             {
-                lock (this)
+                if (!m_disposed && disposing)
                 {
-                    if (!m_disposed && disposing)
+                    if (!Win32Helper.IsRunningOnMono)
                     {
-                        m_localWindowsHook.Dispose();
-                        m_disposed = true;
+                        sm_localWindowsHook.HookInvoked -= m_hookEventHandler;
                     }
 
-                    base.Dispose(disposing);
+                    --_referenceCount;
+
+                    if (_referenceCount == 0 && sm_localWindowsHook != null)
+                    {
+                        sm_localWindowsHook.Dispose();
+                        sm_localWindowsHook = null;
+                    }
+					
+                    m_disposed = true;
                 }
+
+                base.Dispose(disposing);
             }
 
             private IDockContent m_contentActivating = null;
@@ -172,13 +194,24 @@ namespace WeifenLuo.WinFormsUI.Docking
                 if (handler.Form.IsDisposed)
                     return; // Should not reach here, but better than throwing an exception
                 if (ContentContains(content, handler.ActiveWindowHandle))
-                    NativeMethods.SetFocus(handler.ActiveWindowHandle);
-                if (!handler.Form.ContainsFocus)
                 {
-                    if (!handler.Form.SelectNextControl(handler.Form.ActiveControl, true, true, true, true))
-                        // Since DockContent Form is not selectalbe, use Win32 SetFocus instead
-                        NativeMethods.SetFocus(handler.Form.Handle);
+                    if (!Win32Helper.IsRunningOnMono)
+                    {
+                        NativeMethods.SetFocus(handler.ActiveWindowHandle);
+                    }
                 }
+
+                if (handler.Form.ContainsFocus)
+                    return;
+
+                if (handler.Form.SelectNextControl(handler.Form.ActiveControl, true, true, true, true))
+                    return;
+
+                if (Win32Helper.IsRunningOnMono)
+                    return;
+
+                // Since DockContent Form is not selectalbe, use Win32 SetFocus instead
+                NativeMethods.SetFocus(handler.Form.Handle);
             }
 
             private List<IDockContent> m_listContent = new List<IDockContent>();
@@ -281,26 +314,35 @@ namespace WeifenLuo.WinFormsUI.Docking
                 return false;
             }
 
-            private int m_countSuspendFocusTracking = 0;
+            private uint m_countSuspendFocusTracking = 0;
             public void SuspendFocusTracking()
             {
-                m_countSuspendFocusTracking++;
-                m_localWindowsHook.HookInvoked -= m_hookEventHandler;
+                if (m_disposed)
+                    return;
+
+                if (m_countSuspendFocusTracking++ == 0)
+                {
+                    if (!Win32Helper.IsRunningOnMono)
+                        sm_localWindowsHook.HookInvoked -= m_hookEventHandler;
+                }
             }
 
             public void ResumeFocusTracking()
             {
-                if (m_countSuspendFocusTracking > 0)
-                    m_countSuspendFocusTracking--;
+                if (m_disposed || m_countSuspendFocusTracking == 0)
+                    return;
 
-                if (m_countSuspendFocusTracking == 0)
+                if (--m_countSuspendFocusTracking == 0)
                 {
                     if (ContentActivating != null)
                     {
                         Activate(ContentActivating);
                         ContentActivating = null;
                     }
-                    m_localWindowsHook.HookInvoked += m_hookEventHandler;
+
+                    if (!Win32Helper.IsRunningOnMono)
+                        sm_localWindowsHook.HookInvoked += m_hookEventHandler;
+
                     if (!InRefreshActiveWindow)
                         RefreshActiveWindow();
                 }
@@ -323,7 +365,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                     if (pane == null)
                         RefreshActiveWindow();
                 }
-                else if (msg == Win32.Msgs.WM_SETFOCUS)
+                else if (msg == Win32.Msgs.WM_SETFOCUS || msg == Win32.Msgs.WM_MDIACTIVATE)
                     RefreshActiveWindow();
             }
 
@@ -358,6 +400,11 @@ namespace WeifenLuo.WinFormsUI.Docking
 
             private void RefreshActiveWindow()
             {
+                if (DockPanel.Theme == null)
+                {
+                    return;
+                }
+
                 SuspendFocusTracking();
                 m_inRefreshActiveWindow = true;
 
@@ -390,7 +437,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
             private void SetActivePane()
             {
-                DockPane value = GetPaneFromHandle(NativeMethods.GetFocus());
+                DockPane value = Win32Helper.IsRunningOnMono ? null : GetPaneFromHandle(NativeMethods.GetFocus());
                 if (m_activePane == value)
                     return;
 
@@ -543,11 +590,28 @@ namespace WeifenLuo.WinFormsUI.Docking
             add { Events.AddHandler(ActiveContentChangedEvent, value); }
             remove { Events.RemoveHandler(ActiveContentChangedEvent, value); }
         }
+
         protected void OnActiveContentChanged(EventArgs e)
         {
             EventHandler handler = (EventHandler)Events[ActiveContentChangedEvent];
             if (handler != null)
                 handler(this, e);
+        }
+
+        private static readonly object DocumentDraggedEvent = new object();
+        [LocalizedCategory("Category_PropertyChanged")]
+        [LocalizedDescription("DockPanel_ActiveContentChanged_Description")]
+        public event EventHandler DocumentDragged
+        {
+            add { Events.AddHandler(DocumentDraggedEvent, value); }
+            remove { Events.RemoveHandler(DocumentDraggedEvent, value); }
+        }
+
+        internal void OnDocumentDragged()
+        {
+            EventHandler handler = (EventHandler)Events[DocumentDraggedEvent];
+            if (handler != null)
+                handler(this, EventArgs.Empty);
         }
 
         private static readonly object ActivePaneChangedEvent = new object();

@@ -31,34 +31,26 @@ namespace RosDBG
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            WeifenLuo.WinFormsUI.Docking.DockPanelSkin dockPanelSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPanelSkin();
-            WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin autoHideStripSkin2 = new WeifenLuo.WinFormsUI.Docking.AutoHideStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient4 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient8 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin dockPaneStripSkin2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripSkin();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient dockPaneStripGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient9 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient5 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient10 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient dockPaneStripToolWindowGradient2 = new WeifenLuo.WinFormsUI.Docking.DockPaneStripToolWindowGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient11 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient12 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.DockPanelGradient dockPanelGradient6 = new WeifenLuo.WinFormsUI.Docking.DockPanelGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient13 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
-            WeifenLuo.WinFormsUI.Docking.TabGradient tabGradient14 = new WeifenLuo.WinFormsUI.Docking.TabGradient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.continueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.breakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.consoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,12 +70,21 @@ namespace RosDBG
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.continueToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.breakToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.nextToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.stepToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusConnectionMode = new System.Windows.Forms.ToolStripStatusLabel();
@@ -95,25 +96,13 @@ namespace RosDBG
             this.toolStripStatusSourceLocationLine = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.continueToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.breakToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.nextToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.stepToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.continueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.breakToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vS2015BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
+            this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
+            this.vS2015LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015LightTheme();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dockPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -147,10 +136,30 @@ namespace RosDBG
             this.fileMenu.Size = new System.Drawing.Size(37, 20);
             this.fileMenu.Text = "&File";
             // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -163,6 +172,16 @@ namespace RosDBG
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(143, 6);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
+            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printToolStripMenuItem.Text = "&Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // printSetupToolStripMenuItem
             // 
@@ -209,11 +228,50 @@ namespace RosDBG
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(120, 6);
             // 
+            // continueToolStripMenuItem
+            // 
+            this.continueToolStripMenuItem.Enabled = false;
+            this.continueToolStripMenuItem.Image = global::RosDBG.Properties.Resources.Run;
+            this.continueToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
+            this.continueToolStripMenuItem.Name = "continueToolStripMenuItem";
+            this.continueToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.continueToolStripMenuItem.Text = "&Continue";
+            this.continueToolStripMenuItem.Click += new System.EventHandler(this.continueToolStripMenuItem_Click);
+            // 
+            // nextToolStripMenuItem
+            // 
+            this.nextToolStripMenuItem.Enabled = false;
+            this.nextToolStripMenuItem.Image = global::RosDBG.Properties.Resources.StepOver;
+            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
+            this.nextToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.nextToolStripMenuItem.Text = "&Next";
+            this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
+            // 
+            // stepToolStripMenuItem
+            // 
+            this.stepToolStripMenuItem.Enabled = false;
+            this.stepToolStripMenuItem.Image = global::RosDBG.Properties.Resources.StepIn;
+            this.stepToolStripMenuItem.Name = "stepToolStripMenuItem";
+            this.stepToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.stepToolStripMenuItem.Text = "&Step";
+            this.stepToolStripMenuItem.Click += new System.EventHandler(this.stepToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(120, 6);
             this.toolStripMenuItem1.Visible = false;
+            // 
+            // breakToolStripMenuItem
+            // 
+            this.breakToolStripMenuItem.Enabled = false;
+            this.breakToolStripMenuItem.Image = global::RosDBG.Properties.Resources.Pause;
+            this.breakToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
+            this.breakToolStripMenuItem.Name = "breakToolStripMenuItem";
+            this.breakToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.breakToolStripMenuItem.Text = "&Break";
+            this.breakToolStripMenuItem.Visible = false;
+            this.breakToolStripMenuItem.Click += new System.EventHandler(this.breakToolStripMenuItem_Click);
             // 
             // viewMenu
             // 
@@ -359,24 +417,32 @@ namespace RosDBG
             // 
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
             this.contentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             this.contentsToolStripMenuItem.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(165, 6);
+            // 
+            // sourceCodeToolStripMenuItem
+            // 
+            this.sourceCodeToolStripMenuItem.Image = global::RosDBG.Properties.Resources.github_icon;
+            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
+            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.sourceCodeToolStripMenuItem.Text = "&Source Code";
+            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(165, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.aboutToolStripMenuItem.Text = "&Info...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -400,20 +466,104 @@ namespace RosDBG
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
+            // openToolStripButton
+            // 
+            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
+            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.openToolStripButton.Name = "openToolStripButton";
+            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openToolStripButton.Text = "Open";
+            this.openToolStripButton.Click += new System.EventHandler(this.OpenFile);
+            // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Text = "Save";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // printToolStripButton
+            // 
+            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
+            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.printToolStripButton.Name = "printToolStripButton";
+            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.printToolStripButton.Text = "Print";
+            this.printToolStripButton.Click += new System.EventHandler(this.printToolStripButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // helpToolStripButton
+            // 
+            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
+            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
+            this.helpToolStripButton.Name = "helpToolStripButton";
+            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.helpToolStripButton.Text = "Help";
+            this.helpToolStripButton.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // continueToolStripButton
+            // 
+            this.continueToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.continueToolStripButton.Enabled = false;
+            this.continueToolStripButton.Image = global::RosDBG.Properties.Resources.Run;
+            this.continueToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.continueToolStripButton.Name = "continueToolStripButton";
+            this.continueToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.continueToolStripButton.Text = "Continue";
+            this.continueToolStripButton.Click += new System.EventHandler(this.continueToolStripMenuItem_Click);
+            // 
+            // breakToolStripButton
+            // 
+            this.breakToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.breakToolStripButton.Enabled = false;
+            this.breakToolStripButton.Image = global::RosDBG.Properties.Resources.Pause;
+            this.breakToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.breakToolStripButton.Name = "breakToolStripButton";
+            this.breakToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.breakToolStripButton.Text = "Break";
+            this.breakToolStripButton.Visible = false;
+            // 
+            // nextToolStripButton
+            // 
+            this.nextToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nextToolStripButton.Enabled = false;
+            this.nextToolStripButton.Image = global::RosDBG.Properties.Resources.StepOver;
+            this.nextToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.nextToolStripButton.Name = "nextToolStripButton";
+            this.nextToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.nextToolStripButton.Text = "Next";
+            this.nextToolStripButton.Click += new System.EventHandler(this.nextToolStripButton_Click);
+            // 
+            // stepToolStripButton
+            // 
+            this.stepToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.stepToolStripButton.Enabled = false;
+            this.stepToolStripButton.Image = global::RosDBG.Properties.Resources.StepIn;
+            this.stepToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.stepToolStripButton.Name = "stepToolStripButton";
+            this.stepToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.stepToolStripButton.Text = "Step";
+            this.stepToolStripButton.Click += new System.EventHandler(this.stepToolStripButton_Click);
             // 
             // statusStrip
             // 
@@ -497,230 +647,26 @@ namespace RosDBG
             // 
             // dockPanel
             // 
-            this.dockPanel.ActiveAutoHideContent = null;
             this.dockPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dockPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.dockPanel.DockBackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dockPanel.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(242)))));
             this.dockPanel.Location = new System.Drawing.Point(0, 49);
             this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Size = new System.Drawing.Size(784, 490);
-            dockPanelGradient4.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient4.StartColor = System.Drawing.SystemColors.ControlLight;
-            autoHideStripSkin2.DockStripGradient = dockPanelGradient4;
-            tabGradient8.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient8.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient8.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            autoHideStripSkin2.TabGradient = tabGradient8;
-            dockPanelSkin2.AutoHideStripSkin = autoHideStripSkin2;
-            tabGradient9.EndColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.StartColor = System.Drawing.SystemColors.ControlLightLight;
-            tabGradient9.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.ActiveTabGradient = tabGradient9;
-            dockPanelGradient5.EndColor = System.Drawing.SystemColors.Control;
-            dockPanelGradient5.StartColor = System.Drawing.SystemColors.Control;
-            dockPaneStripGradient2.DockStripGradient = dockPanelGradient5;
-            tabGradient10.EndColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.StartColor = System.Drawing.SystemColors.ControlLight;
-            tabGradient10.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripGradient2.InactiveTabGradient = tabGradient10;
-            dockPaneStripSkin2.DocumentGradient = dockPaneStripGradient2;
-            tabGradient11.EndColor = System.Drawing.SystemColors.ActiveCaption;
-            tabGradient11.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient11.StartColor = System.Drawing.SystemColors.GradientActiveCaption;
-            tabGradient11.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dockPaneStripToolWindowGradient2.ActiveCaptionGradient = tabGradient11;
-            tabGradient12.EndColor = System.Drawing.SystemColors.Control;
-            tabGradient12.StartColor = System.Drawing.SystemColors.Control;
-            tabGradient12.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.ActiveTabGradient = tabGradient12;
-            dockPanelGradient6.EndColor = System.Drawing.SystemColors.ControlLight;
-            dockPanelGradient6.StartColor = System.Drawing.SystemColors.ControlLight;
-            dockPaneStripToolWindowGradient2.DockStripGradient = dockPanelGradient6;
-            tabGradient13.EndColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.LinearGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            tabGradient13.StartColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            tabGradient13.TextColor = System.Drawing.SystemColors.ControlText;
-            dockPaneStripToolWindowGradient2.InactiveCaptionGradient = tabGradient13;
-            tabGradient14.EndColor = System.Drawing.Color.Transparent;
-            tabGradient14.StartColor = System.Drawing.Color.Transparent;
-            tabGradient14.TextColor = System.Drawing.SystemColors.ControlDarkDark;
-            dockPaneStripToolWindowGradient2.InactiveTabGradient = tabGradient14;
-            dockPaneStripSkin2.ToolWindowGradient = dockPaneStripToolWindowGradient2;
-            dockPanelSkin2.DockPaneStripSkin = dockPaneStripSkin2;
-            this.dockPanel.Skin = dockPanelSkin2;
+            this.dockPanel.Padding = new System.Windows.Forms.Padding(6);
+            this.dockPanel.ShowAutoHideContentOnHover = false;
+            this.dockPanel.Size = new System.Drawing.Size(784, 488);
             this.dockPanel.TabIndex = 4;
+            this.dockPanel.Theme = this.vS2015LightTheme1;
             this.dockPanel.ActiveDocumentChanged += new System.EventHandler(this.dockPanel_ActiveDocumentChanged);
-            // 
-            // openToolStripButton
-            // 
-            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
-            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.openToolStripButton.Text = "Open";
-            this.openToolStripButton.Click += new System.EventHandler(this.OpenFile);
-            // 
-            // saveToolStripButton
-            // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.saveToolStripButton.Text = "Save";
-            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // printToolStripButton
-            // 
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printToolStripButton.Text = "Print";
-            this.printToolStripButton.Click += new System.EventHandler(this.printToolStripButton_Click);
-            // 
-            // helpToolStripButton
-            // 
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
-            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
-            this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.helpToolStripButton.Text = "Help";
-            this.helpToolStripButton.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
-            // 
-            // continueToolStripButton
-            // 
-            this.continueToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.continueToolStripButton.Enabled = false;
-            this.continueToolStripButton.Image = global::RosDBG.Properties.Resources.Run;
-            this.continueToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.continueToolStripButton.Name = "continueToolStripButton";
-            this.continueToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.continueToolStripButton.Text = "Continue";
-            this.continueToolStripButton.Click += new System.EventHandler(this.continueToolStripMenuItem_Click);
-            // 
-            // breakToolStripButton
-            // 
-            this.breakToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.breakToolStripButton.Enabled = false;
-            this.breakToolStripButton.Image = global::RosDBG.Properties.Resources.Pause;
-            this.breakToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.breakToolStripButton.Name = "breakToolStripButton";
-            this.breakToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.breakToolStripButton.Text = "Break";
-            this.breakToolStripButton.Visible = false;
-            // 
-            // nextToolStripButton
-            // 
-            this.nextToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.nextToolStripButton.Enabled = false;
-            this.nextToolStripButton.Image = global::RosDBG.Properties.Resources.StepOver;
-            this.nextToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.nextToolStripButton.Name = "nextToolStripButton";
-            this.nextToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.nextToolStripButton.Text = "Next";
-            this.nextToolStripButton.Click += new System.EventHandler(this.nextToolStripButton_Click);
-            // 
-            // stepToolStripButton
-            // 
-            this.stepToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.stepToolStripButton.Enabled = false;
-            this.stepToolStripButton.Image = global::RosDBG.Properties.Resources.StepIn;
-            this.stepToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.stepToolStripButton.Name = "stepToolStripButton";
-            this.stepToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.stepToolStripButton.Text = "Step";
-            this.stepToolStripButton.Click += new System.EventHandler(this.stepToolStripButton_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
-            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.openToolStripMenuItem.Text = "&Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
-            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.printToolStripMenuItem.Text = "&Print";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
-            // 
-            // continueToolStripMenuItem
-            // 
-            this.continueToolStripMenuItem.Enabled = false;
-            this.continueToolStripMenuItem.Image = global::RosDBG.Properties.Resources.Run;
-            this.continueToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
-            this.continueToolStripMenuItem.Name = "continueToolStripMenuItem";
-            this.continueToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.continueToolStripMenuItem.Text = "&Continue";
-            this.continueToolStripMenuItem.Click += new System.EventHandler(this.continueToolStripMenuItem_Click);
-            // 
-            // nextToolStripMenuItem
-            // 
-            this.nextToolStripMenuItem.Enabled = false;
-            this.nextToolStripMenuItem.Image = global::RosDBG.Properties.Resources.StepOver;
-            this.nextToolStripMenuItem.Name = "nextToolStripMenuItem";
-            this.nextToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.nextToolStripMenuItem.Text = "&Next";
-            this.nextToolStripMenuItem.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
-            // 
-            // stepToolStripMenuItem
-            // 
-            this.stepToolStripMenuItem.Enabled = false;
-            this.stepToolStripMenuItem.Image = global::RosDBG.Properties.Resources.StepIn;
-            this.stepToolStripMenuItem.Name = "stepToolStripMenuItem";
-            this.stepToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.stepToolStripMenuItem.Text = "&Step";
-            this.stepToolStripMenuItem.Click += new System.EventHandler(this.stepToolStripMenuItem_Click);
-            // 
-            // breakToolStripMenuItem
-            // 
-            this.breakToolStripMenuItem.Enabled = false;
-            this.breakToolStripMenuItem.Image = global::RosDBG.Properties.Resources.Pause;
-            this.breakToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Fuchsia;
-            this.breakToolStripMenuItem.Name = "breakToolStripMenuItem";
-            this.breakToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.breakToolStripMenuItem.Text = "&Break";
-            this.breakToolStripMenuItem.Visible = false;
-            this.breakToolStripMenuItem.Click += new System.EventHandler(this.breakToolStripMenuItem_Click);
-            // 
-            // sourceCodeToolStripMenuItem
-            // 
-            this.sourceCodeToolStripMenuItem.Image = global::RosDBG.Properties.Resources.github_icon;
-            this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.sourceCodeToolStripMenuItem.Text = "&Source Code";
-            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 564);
-            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.dockPanel);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -736,6 +682,7 @@ namespace RosDBG
             this.toolStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dockPanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -771,7 +718,6 @@ namespace RosDBG
         private System.Windows.Forms.ToolStripButton printToolStripButton;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
-        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
         private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem breakToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem continueToolStripMenuItem;
@@ -807,6 +753,10 @@ namespace RosDBG
         private System.Windows.Forms.ToolStripButton nextToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
+        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
+        private WeifenLuo.WinFormsUI.Docking.VS2015LightTheme vS2015LightTheme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme vS2015BlueTheme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme vS2015DarkTheme1;
     }
 }
 

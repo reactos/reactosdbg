@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -40,8 +39,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         internal int Add(IDockContent content)
         {
 #if DEBUG
-			if (DockPane != null)
-				throw new InvalidOperationException();
+            if (DockPane != null)
+                throw new InvalidOperationException();
 #endif
 
             if (Contains(content))
@@ -54,8 +53,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         internal void AddAt(IDockContent content, int index)
         {
 #if DEBUG
-			if (DockPane != null)
-				throw new InvalidOperationException();
+            if (DockPane != null)
+                throw new InvalidOperationException();
 #endif
 
             if (index < 0 || index > Items.Count - 1)
@@ -115,8 +114,8 @@ namespace WeifenLuo.WinFormsUI.Docking
             get
             {
 #if DEBUG
-				if (DockPane == null)
-					throw new InvalidOperationException();
+                if (DockPane == null)
+                    throw new InvalidOperationException();
 #endif
 
                 int count = 0;
@@ -132,8 +131,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         private IDockContent GetVisibleContent(int index)
         {
 #if DEBUG
-			if (DockPane == null)
-				throw new InvalidOperationException();
+            if (DockPane == null)
+                throw new InvalidOperationException();
 #endif
 
             int currentIndex = -1;
@@ -151,8 +150,8 @@ namespace WeifenLuo.WinFormsUI.Docking
         private int GetIndexOfVisibleContents(IDockContent content)
         {
 #if DEBUG
-			if (DockPane == null)
-				throw new InvalidOperationException();
+            if (DockPane == null)
+                throw new InvalidOperationException();
 #endif
 
             if (content == null)

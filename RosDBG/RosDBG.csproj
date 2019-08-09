@@ -356,6 +356,10 @@
       <Project>{F943218A-0A5E-436E-A7A4-475F37F45FA8}</Project>
       <Name>Pipe</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WinFormsUI\ThemeVS2015.csproj">
+      <Project>{007d4ac8-948f-4816-86ad-b9d1343672c1}</Project>
+      <Name>ThemeVS2015</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
       <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
       <Name>WinFormsUI</Name>
