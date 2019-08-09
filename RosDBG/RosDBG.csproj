@@ -368,6 +368,7 @@
     <None Include="Resources\Run.bmp" />
     <None Include="Resources\Pause.bmp" />
     <Content Include="Resources\emblem-system.ico" />
+    <None Include="Resources\github-icon.png" />
     <Content Include="Resources\internet-web-browser.ico" />
     <None Include="Resources\StepIn.png" />
     <None Include="Resources\StepOut.png" />
