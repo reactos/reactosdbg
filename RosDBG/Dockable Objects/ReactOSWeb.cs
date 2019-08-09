@@ -190,5 +190,10 @@ namespace RosDBG
             else
                 BrowserView.Navigate(url);
         }
+
+        private void btnExternalBrowser_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(BrowserView.Url.ToString());
+        }
     }
 }
