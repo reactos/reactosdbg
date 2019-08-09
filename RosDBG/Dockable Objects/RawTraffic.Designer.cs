@@ -53,8 +53,9 @@
             // 
             // RawTrafficText
             // 
+            this.RawTrafficText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RawTrafficText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RawTrafficText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RawTrafficText.Font = new System.Drawing.Font("Courier New", 9F);
             this.RawTrafficText.Location = new System.Drawing.Point(0, 0);
             this.RawTrafficText.MaxLength = 10000000;
             this.RawTrafficText.Multiline = true;
@@ -162,21 +163,21 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 3);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Location = new System.Drawing.Point(5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(34, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "kdb:>";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RawTrafficTextBox
             // 
             this.RawTrafficTextBox.AcceptsReturn = true;
-            this.RawTrafficTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RawTrafficTextBox.Location = new System.Drawing.Point(0, 0);
+            this.RawTrafficTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RawTrafficTextBox.Location = new System.Drawing.Point(3, 3);
             this.RawTrafficTextBox.Name = "RawTrafficTextBox";
-            this.RawTrafficTextBox.Size = new System.Drawing.Size(385, 20);
+            this.RawTrafficTextBox.Size = new System.Drawing.Size(377, 20);
             this.RawTrafficTextBox.TabIndex = 0;
             this.RawTrafficTextBox.Tag = "0";
             this.RawTrafficTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RawTrafficTextBox_KeyPress);
@@ -203,7 +204,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
