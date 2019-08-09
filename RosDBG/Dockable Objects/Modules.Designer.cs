@@ -29,10 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Modules));
+            this.MListAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MListShortName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ModulesList = new System.Windows.Forms.ListView();
-            this.MListAddress = new System.Windows.Forms.ColumnHeader();
-            this.MListShortName = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
+            // 
+            // MListAddress
+            // 
+            this.MListAddress.Text = "Address";
+            this.MListAddress.Width = 80;
+            // 
+            // MListShortName
+            // 
+            this.MListShortName.Text = "ShortName";
+            this.MListShortName.Width = 120;
             // 
             // ModulesList
             // 
@@ -52,16 +62,6 @@
             this.ModulesList.VirtualMode = true;
             this.ModulesList.RetrieveVirtualItem += new System.Windows.Forms.RetrieveVirtualItemEventHandler(this.ModulesList_RetrieveVirtualItem);
             // 
-            // MListAddress
-            // 
-            this.MListAddress.Text = "Address";
-            this.MListAddress.Width = 80;
-            // 
-            // MListShortName
-            // 
-            this.MListShortName.Text = "ShortName";
-            this.MListShortName.Width = 120;
-            // 
             // Modules
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,8 +79,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView ModulesList;
         private System.Windows.Forms.ColumnHeader MListAddress;
         private System.Windows.Forms.ColumnHeader MListShortName;
+        private System.Windows.Forms.ListView ModulesList;
     }
 }

@@ -37,7 +37,6 @@
             this.navHome = new System.Windows.Forms.ToolStripButton();
             this.AddressInput = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.navPaste = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tbJiraInput = new System.Windows.Forms.ToolStripTextBox();
@@ -48,6 +47,8 @@
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.navPaste = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -154,17 +155,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // navPaste
-            // 
-            this.navPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.navPaste.Image = ((System.Drawing.Image)(resources.GetObject("navPaste.Image")));
-            this.navPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.navPaste.Name = "navPaste";
-            this.navPaste.Size = new System.Drawing.Size(23, 22);
-            this.navPaste.Text = "toolStripButton4";
-            this.navPaste.ToolTipText = "Paste";
-            this.navPaste.Click += new System.EventHandler(this.navPaste_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -247,6 +237,17 @@
             this.selectAllToolStripMenuItem.Text = "&Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
+            // navPaste
+            // 
+            this.navPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.navPaste.Image = ((System.Drawing.Image)(resources.GetObject("navPaste.Image")));
+            this.navPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.navPaste.Name = "navPaste";
+            this.navPaste.Size = new System.Drawing.Size(23, 22);
+            this.navPaste.Text = "toolStripButton4";
+            this.navPaste.ToolTipText = "Paste";
+            this.navPaste.Click += new System.EventHandler(this.navPaste_Click);
+            // 
             // ReactOSWeb
             // 
             this.AllowEndUserDocking = false;
@@ -262,6 +263,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -281,7 +283,6 @@
         private System.Windows.Forms.ToolStripButton navForward;
         private System.Windows.Forms.ToolStripComboBox AddressInput;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton navPaste;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox tbJiraInput;
@@ -293,5 +294,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnGoJIRA;
+        private System.Windows.Forms.ToolStripButton navPaste;
     }
 }

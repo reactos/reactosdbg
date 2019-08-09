@@ -198,6 +198,9 @@
       <DependentUpon>Connect.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dockable Objects\ToolWindow.resx">
+      <DependentUpon>ToolWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditBreakpointDialog.resx">
       <DependentUpon>EditBreakpointDialog.cs</DependentUpon>
       <SubType>Designer</SubType>

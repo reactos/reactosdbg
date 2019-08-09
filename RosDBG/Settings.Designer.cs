@@ -30,8 +30,9 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.SettingsGrid = new System.Windows.Forms.PropertyGrid();
-            this.OKBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
+            this.OKBtn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -66,17 +67,6 @@
             this.SettingsGrid.Size = new System.Drawing.Size(415, 284);
             this.SettingsGrid.TabIndex = 0;
             // 
-            // OKBtn
-            // 
-            this.OKBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OKBtn.Location = new System.Drawing.Point(256, 3);
-            this.OKBtn.Name = "OKBtn";
-            this.OKBtn.Size = new System.Drawing.Size(75, 23);
-            this.OKBtn.TabIndex = 1;
-            this.OKBtn.Text = "OK";
-            this.OKBtn.UseVisualStyleBackColor = true;
-            this.OKBtn.Click += new System.EventHandler(this.OKButton_Click);
-            // 
             // CancelBtn
             // 
             this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -88,6 +78,17 @@
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
             this.CancelBtn.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // OKBtn
+            // 
+            this.OKBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.OKBtn.Location = new System.Drawing.Point(256, 3);
+            this.OKBtn.Name = "OKBtn";
+            this.OKBtn.Size = new System.Drawing.Size(75, 23);
+            this.OKBtn.TabIndex = 1;
+            this.OKBtn.Text = "OK";
+            this.OKBtn.UseVisualStyleBackColor = true;
+            this.OKBtn.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // Settings
             // 
@@ -106,6 +107,7 @@
             this.Text = "Settings";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -115,8 +117,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PropertyGrid SettingsGrid;
-        private System.Windows.Forms.Button OKBtn;
         private System.Windows.Forms.Button CancelBtn;
-
+        private System.Windows.Forms.Button OKBtn;
     }
 }

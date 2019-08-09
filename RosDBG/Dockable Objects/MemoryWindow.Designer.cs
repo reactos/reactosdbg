@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemoryWindow));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.MemoryAddress = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MemoryView = new System.Windows.Forms.ListView();
-            this.MemoryDataColumn = new System.Windows.Forms.ColumnHeader();
+            this.MemoryDataColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.MemoryAddress = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -57,14 +58,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(393, 305);
             this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // MemoryAddress
-            // 
-            this.MemoryAddress.Location = new System.Drawing.Point(54, 3);
-            this.MemoryAddress.Name = "MemoryAddress";
-            this.MemoryAddress.Size = new System.Drawing.Size(152, 20);
-            this.MemoryAddress.TabIndex = 1;
-            this.MemoryAddress.TextChanged += new System.EventHandler(this.MemoryAddress_TextChanged);
             // 
             // label1
             // 
@@ -103,6 +96,14 @@
             this.MemoryDataColumn.Text = "Memory Data";
             this.MemoryDataColumn.Width = 1000;
             // 
+            // MemoryAddress
+            // 
+            this.MemoryAddress.Location = new System.Drawing.Point(54, 3);
+            this.MemoryAddress.Name = "MemoryAddress";
+            this.MemoryAddress.Size = new System.Drawing.Size(152, 20);
+            this.MemoryAddress.TabIndex = 1;
+            this.MemoryAddress.TextChanged += new System.EventHandler(this.MemoryAddress_TextChanged);
+            // 
             // MemoryWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +118,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -125,9 +127,9 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox MemoryAddress;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView MemoryView;
         private System.Windows.Forms.ColumnHeader MemoryDataColumn;
+        private System.Windows.Forms.TextBox MemoryAddress;
     }
 }

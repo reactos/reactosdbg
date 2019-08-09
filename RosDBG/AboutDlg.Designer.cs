@@ -60,10 +60,10 @@
             this.creditsLabel.AutoSize = true;
             this.creditsLabel.Location = new System.Drawing.Point(37, 70);
             this.creditsLabel.Name = "creditsLabel";
-            this.creditsLabel.Size = new System.Drawing.Size(132, 91);
+            this.creditsLabel.Size = new System.Drawing.Size(108, 91);
             this.creditsLabel.TabIndex = 3;
             this.creditsLabel.Text = "Brought to you by:\r\n\r\nArt Yerkes\r\nChristoph von Wittich\r\nGed Murphy\r\nGregor Schne" +
-                "ider\r\nWillem A. Hajenius\r\n";
+    "ider\r\nWillem A. Hajenius\r\n";
             // 
             // AboutDlg
             // 
