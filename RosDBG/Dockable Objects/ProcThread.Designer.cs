@@ -55,26 +55,31 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.Threads);
             this.splitContainer1.Size = new System.Drawing.Size(403, 313);
-            this.splitContainer1.SplitterDistance = 122;
+            this.splitContainer1.SplitterDistance = 150;
+            this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 0;
             // 
             // Processes
             // 
+            this.Processes.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Processes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Processes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Processes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Processes.Location = new System.Drawing.Point(0, 0);
             this.Processes.Name = "Processes";
-            this.Processes.Size = new System.Drawing.Size(403, 122);
+            this.Processes.Size = new System.Drawing.Size(403, 150);
             this.Processes.TabIndex = 0;
             this.Processes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Processes_CellDoubleClick);
             // 
             // Threads
             // 
+            this.Threads.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Threads.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Threads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Threads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Threads.Location = new System.Drawing.Point(0, 0);
             this.Threads.Name = "Threads";
-            this.Threads.Size = new System.Drawing.Size(403, 187);
+            this.Threads.Size = new System.Drawing.Size(403, 162);
             this.Threads.TabIndex = 0;
             this.Threads.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Threads_CellDoubleClick);
             // 
