@@ -104,7 +104,7 @@ namespace RosDBG
                 }
                 else
                 {
-                    toolStripStatusConnected.ForeColor = Color.Yellow;
+                    toolStripStatusConnected.ForeColor = Color.Blue;
                     toolStripStatusConnected.Text = "Waiting";
                 }
             }
