@@ -95,8 +95,8 @@ namespace RosDBG
                 get { return this["OutputDirectory"].ToString(); }
                 set
                 {
-                    if (!File.Exists(value + "\\ntoskrnl\\ntoskrnl.nostrip.exe"))
-                        MessageBox.Show("Can not find .nostrip files!\nThe Debugger will not work properly without them.\n\nPlease enable building of .nostrip files in RosBE options." , "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);  
+                    if (!File.Exists(value + "\\symbols\\ntoskrnl.exe"))
+                        MessageBox.Show("Can not find symbol files!\nThe Debugger will not work properly without them.\n\nPlease rebuild with -DSEPARATE_DBG=1." , "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);  
                     this["OutputDirectory"] = value; 
                 }
             }
