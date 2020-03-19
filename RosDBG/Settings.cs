@@ -89,7 +89,7 @@ namespace RosDBG
             }
 
             [CategoryAttribute("Directories"), DescriptionAttribute("Directory settings")]
-            [UserScopedSetting,DefaultSettingValue(".\\output-i386"),Editor(typeof(DirectoryEditor), typeof(UITypeEditor))]
+            [UserScopedSetting,DefaultSettingValue(".\\output-MinGW-i386"),Editor(typeof(DirectoryEditor), typeof(UITypeEditor))]
             public string OutputDirectory
             {
                 get { return this["OutputDirectory"].ToString(); }
