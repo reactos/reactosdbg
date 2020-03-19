@@ -82,7 +82,7 @@ namespace RosDBG
                 get { return this["SourceDirectory"].ToString(); }
                 set 
                 {
-                    if (!File.Exists(value + "\\ReactOS-generic.rbuild"))
+                    if (!File.Exists(value + "\\toolchain-gcc.cmake"))
                         MessageBox.Show("Can not find ReactOS sources in this directory!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this["SourceDirectory"] = value;
                 }
