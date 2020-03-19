@@ -6,7 +6,7 @@ namespace DbgHelpAPI
 {
     public class FileMap
     {
-        string []mDirectories = new string [] { "output-i386" };
+        string []mDirectories = new string [] { "output-MinGW-i386" };
         Dictionary<string, List<string>> mFileByShortName = new Dictionary<string, List<string>>();
 
         public string GetFilePathFromShortName(string shortname)
