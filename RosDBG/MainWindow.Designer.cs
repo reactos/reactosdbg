@@ -388,8 +388,8 @@ namespace RosDBG
             this.toolStripMenuItem5,
             this.optionsToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(50, 20);
-            this.toolsMenu.Text = "&Extras";
+            this.toolsMenu.Size = new System.Drawing.Size(46, 20);
+            this.toolsMenu.Text = "&Tools";
             // 
             // externalToolsToolStripMenuItem
             // 
