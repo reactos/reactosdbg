@@ -82,21 +82,21 @@ namespace RosDBG
                 get { return this["SourceDirectory"].ToString(); }
                 set 
                 {
-                    if (!File.Exists(value + "\\ReactOS-generic.rbuild"))
+                    if (!File.Exists(value + "\\toolchain-gcc.cmake"))
                         MessageBox.Show("Can not find ReactOS sources in this directory!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this["SourceDirectory"] = value;
                 }
             }
 
             [CategoryAttribute("Directories"), DescriptionAttribute("Directory settings")]
-            [UserScopedSetting,DefaultSettingValue(".\\output-i386"),Editor(typeof(DirectoryEditor), typeof(UITypeEditor))]
+            [UserScopedSetting,DefaultSettingValue(".\\output-MinGW-i386"),Editor(typeof(DirectoryEditor), typeof(UITypeEditor))]
             public string OutputDirectory
             {
                 get { return this["OutputDirectory"].ToString(); }
                 set
                 {
-                    if (!File.Exists(value + "\\ntoskrnl\\ntoskrnl.nostrip.exe"))
-                        MessageBox.Show("Can not find .nostrip files!\nThe Debugger will not work properly without them.\n\nPlease enable building of .nostrip files in RosBE options." , "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);  
+                    if (!File.Exists(value + "\\symbols\\ntoskrnl.exe"))
+                        MessageBox.Show("Can not find symbol files!\nThe Debugger will not work properly without them.\n\nPlease rebuild with -DSEPARATE_DBG=1." , "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);  
                     this["OutputDirectory"] = value; 
                 }
             }
