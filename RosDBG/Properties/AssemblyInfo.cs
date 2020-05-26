@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ReactOS Remote Debugger")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Debugging shell for ReactOS (KDBG)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ReactOS Remote Debugger")]
-[assembly: AssemblyCopyright("Copyright ©  2009")]
+[assembly: AssemblyCopyright("Copyright ©  2009-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -39,5 +39,5 @@ using System.Runtime.InteropServices;
 // will be increased as well. MSI installers must not be generated with the same Build Number
 // otherwise they won't upgrade the old installation!
 
-[assembly: AssemblyVersion("1.0.23.10")]
-[assembly: AssemblyFileVersion("1.0.23.10")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]

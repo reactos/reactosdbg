@@ -104,7 +104,7 @@ namespace RosDBG
                 }
                 else
                 {
-                    toolStripStatusConnected.ForeColor = Color.Yellow;
+                    toolStripStatusConnected.ForeColor = Color.Blue;
                     toolStripStatusConnected.Text = "Waiting";
                 }
             }
@@ -497,6 +497,13 @@ namespace RosDBG
 
             }
         }
+
+        private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReactOSWeb Help = new ReactOSWeb("Source Code", "https://github.com/reactos/reactosdbg");
+            Help.Show(dockPanel);
+        }
+
         private void SaveWindowSettings()
         {
             RosDBG.Properties.Settings.Default.Size = this.Size;

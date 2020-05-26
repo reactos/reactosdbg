@@ -41,9 +41,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.RawTrafficTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -51,8 +53,9 @@
             // 
             // RawTrafficText
             // 
+            this.RawTrafficText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RawTrafficText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RawTrafficText.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RawTrafficText.Font = new System.Drawing.Font("Courier New", 9F);
             this.RawTrafficText.Location = new System.Drawing.Point(0, 0);
             this.RawTrafficText.MaxLength = 10000000;
             this.RawTrafficText.Multiline = true;
@@ -86,7 +89,7 @@
             this.editToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.Insert;
             this.editToolStripMenuItem.MergeIndex = 1;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "&Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -95,26 +98,26 @@
             this.copyToolStripMenuItem.Enabled = false;
             this.copyToolStripMenuItem.Image = global::RosDBG.Properties.Resources.copyToolStripMenuItem_Image;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.copyToolStripMenuItem.Text = "&Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.clearToolStripMenuItem.Text = "C&lear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(124, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(117, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.selectAllToolStripMenuItem.Text = "&Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
@@ -160,21 +163,21 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(2, 3);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Location = new System.Drawing.Point(5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.Size = new System.Drawing.Size(34, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "kdb:>";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RawTrafficTextBox
             // 
             this.RawTrafficTextBox.AcceptsReturn = true;
-            this.RawTrafficTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RawTrafficTextBox.Location = new System.Drawing.Point(0, 0);
+            this.RawTrafficTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RawTrafficTextBox.Location = new System.Drawing.Point(3, 3);
             this.RawTrafficTextBox.Name = "RawTrafficTextBox";
-            this.RawTrafficTextBox.Size = new System.Drawing.Size(385, 20);
+            this.RawTrafficTextBox.Size = new System.Drawing.Size(377, 20);
             this.RawTrafficTextBox.TabIndex = 0;
             this.RawTrafficTextBox.Tag = "0";
             this.RawTrafficTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RawTrafficTextBox_KeyPress);
@@ -188,6 +191,7 @@
             this.ClientSize = new System.Drawing.Size(425, 294);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -198,11 +202,12 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

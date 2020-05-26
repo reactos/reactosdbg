@@ -35,12 +35,13 @@
             this.btnBreakpoint = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.SourceCode = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SourceCode = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -118,22 +119,6 @@
             this.toolStripStatusLabel1.Text = "Row 0, Col 0";
             this.toolStripStatusLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // SourceCode
-            // 
-            this.SourceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.SourceCode.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SourceCode.Location = new System.Drawing.Point(0, 0);
-            this.SourceCode.Name = "SourceCode";
-            this.SourceCode.ReadOnly = true;
-            this.SourceCode.Size = new System.Drawing.Size(481, 218);
-            this.SourceCode.TabIndex = 3;
-            this.SourceCode.Text = "";
-            this.SourceCode.SelectionChanged += new System.EventHandler(this.SourceCode_SelectionChanged);
-            this.SourceCode.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SourceCode_MouseClick);
-            this.SourceCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SourceCode_KeyUp);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,6 +163,22 @@
             this.selectAllToolStripMenuItem.Text = "&Select all";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
+            // SourceCode
+            // 
+            this.SourceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SourceCode.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SourceCode.Location = new System.Drawing.Point(0, 0);
+            this.SourceCode.Name = "SourceCode";
+            this.SourceCode.ReadOnly = true;
+            this.SourceCode.Size = new System.Drawing.Size(481, 218);
+            this.SourceCode.TabIndex = 3;
+            this.SourceCode.Text = "";
+            this.SourceCode.SelectionChanged += new System.EventHandler(this.SourceCode_SelectionChanged);
+            this.SourceCode.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SourceCode_MouseClick);
+            this.SourceCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SourceCode_KeyUp);
+            // 
             // SourceView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +192,7 @@
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -206,7 +208,6 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.RichTextBox SourceCode;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnCopy;
         private System.Windows.Forms.ToolStripButton btnBreakpoint;
@@ -217,6 +218,6 @@
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-
+        private System.Windows.Forms.RichTextBox SourceCode;
     }
 }

@@ -8,8 +8,8 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace WeifenLuo.WinFormsUI.Docking
 {
-	public abstract partial class AutoHideStripBase : Control
-	{
+    public abstract class AutoHideStripBase : Control
+    {
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
         protected class Tab : IDisposable
         {
@@ -85,7 +85,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                 {
                     IDockContent content = DockPane.DisplayingContents[index];
                     if (content == null)
-                        throw (new ArgumentOutOfRangeException("index"));
+                        throw new ArgumentOutOfRangeException(nameof(index));
                     if (content.DockHandler.AutoHideTab == null)
                         content.DockHandler.AutoHideTab = (DockPanel.AutoHideStripControl.CreateTab(content));
                     return content.DockHandler.AutoHideTab as Tab;
@@ -188,12 +188,12 @@ namespace WeifenLuo.WinFormsUI.Docking
 
                 public AutoHideStateCollection()
                 {
-                    m_states = new AutoHideState[]	{	
-												new AutoHideState(DockState.DockTopAutoHide),
-												new AutoHideState(DockState.DockBottomAutoHide),
-												new AutoHideState(DockState.DockLeftAutoHide),
-												new AutoHideState(DockState.DockRightAutoHide)
-											};
+                    m_states = new[]{
+                                        new AutoHideState(DockState.DockTopAutoHide),
+                                        new AutoHideState(DockState.DockBottomAutoHide),
+                                        new AutoHideState(DockState.DockLeftAutoHide),
+                                        new AutoHideState(DockState.DockRightAutoHide)
+                                    };
                 }
 
                 public AutoHideState this[DockState dockState]
@@ -205,7 +205,7 @@ namespace WeifenLuo.WinFormsUI.Docking
                             if (m_states[i].DockState == dockState)
                                 return m_states[i];
                         }
-                        throw new ArgumentOutOfRangeException("dockState");
+                        throw new ArgumentOutOfRangeException(nameof(dockState));
                     }
                 }
 
@@ -279,7 +279,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
                         count++;
                     }
-                    throw new ArgumentOutOfRangeException("index");
+                    throw new ArgumentOutOfRangeException(nameof(index));
                 }
             }
 
@@ -324,196 +324,223 @@ namespace WeifenLuo.WinFormsUI.Docking
             #endregion
         }
 
-		protected AutoHideStripBase(DockPanel panel)
-		{
-			m_dockPanel = panel;
-			m_panesTop = new PaneCollection(panel, DockState.DockTopAutoHide);
-			m_panesBottom = new PaneCollection(panel, DockState.DockBottomAutoHide);
-			m_panesLeft = new PaneCollection(panel, DockState.DockLeftAutoHide);
-			m_panesRight = new PaneCollection(panel, DockState.DockRightAutoHide);
+        protected AutoHideStripBase(DockPanel panel)
+        {
+            DockPanel = panel;
+            PanesTop = new PaneCollection(panel, DockState.DockTopAutoHide);
+            PanesBottom = new PaneCollection(panel, DockState.DockBottomAutoHide);
+            PanesLeft = new PaneCollection(panel, DockState.DockLeftAutoHide);
+            PanesRight = new PaneCollection(panel, DockState.DockRightAutoHide);
 
-			SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-			SetStyle(ControlStyles.Selectable, false);
-		}
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.Selectable, false);
+        }
 
-		private DockPanel m_dockPanel;
-		protected DockPanel DockPanel
-		{
-			get	{	return m_dockPanel;	}
-		}
+        protected DockPanel DockPanel { get; private set; }
 
-		private PaneCollection m_panesTop;
-		protected PaneCollection PanesTop
-		{
-			get	{	return m_panesTop;	}
-		}
+        protected PaneCollection PanesTop { get; private set; }
+        protected PaneCollection PanesBottom { get; private set; }
+        protected PaneCollection PanesLeft { get; private set; }
+        protected PaneCollection PanesRight { get; private set; }
 
-		private PaneCollection m_panesBottom;
-		protected PaneCollection PanesBottom
-		{
-			get	{	return m_panesBottom;	}
-		}
-
-		private PaneCollection m_panesLeft;
-		protected PaneCollection PanesLeft
-		{
-			get	{	return m_panesLeft;	}
-		}
-
-		private PaneCollection m_panesRight;
-		protected PaneCollection PanesRight
-		{
-			get	{	return m_panesRight;	}
-		}
-
-		protected PaneCollection GetPanes(DockState dockState)
-		{
-			if (dockState == DockState.DockTopAutoHide)
-				return PanesTop;
-			else if (dockState == DockState.DockBottomAutoHide)
-				return PanesBottom;
-			else if (dockState == DockState.DockLeftAutoHide)
-				return PanesLeft;
-			else if (dockState == DockState.DockRightAutoHide)
-				return PanesRight;
-			else
-				throw new ArgumentOutOfRangeException("dockState");
-		}
+        protected PaneCollection GetPanes(DockState dockState)
+        {
+            if (dockState == DockState.DockTopAutoHide)
+                return PanesTop;
+            else if (dockState == DockState.DockBottomAutoHide)
+                return PanesBottom;
+            else if (dockState == DockState.DockLeftAutoHide)
+                return PanesLeft;
+            else if (dockState == DockState.DockRightAutoHide)
+                return PanesRight;
+            else
+                throw new ArgumentOutOfRangeException(nameof(dockState));
+        }
 
         internal int GetNumberOfPanes(DockState dockState)
         {
             return GetPanes(dockState).Count;
         }
 
-		protected Rectangle RectangleTopLeft
-		{
-			get
-			{	
-				int height = MeasureHeight();
-				return PanesTop.Count > 0 && PanesLeft.Count > 0 ? new Rectangle(0, 0, height, height) : Rectangle.Empty;
-			}
-		}
+        /// <summary>
+        /// The top left rectangle in auto hide strip area.
+        /// </summary>
+        protected Rectangle RectangleTopLeft
+        {
+            get
+            {
+                int standard = MeasureHeight();
+                var padding = DockPanel.Theme.Measures.DockPadding;
+                var width = PanesLeft.Count > 0 ? standard : padding;
+                var height = PanesTop.Count > 0 ? standard : padding;
+                return new Rectangle(0, 0, width, height);
+            }
+        }
 
-		protected Rectangle RectangleTopRight
-		{
-			get
-			{
-				int height = MeasureHeight();
-				return PanesTop.Count > 0 && PanesRight.Count > 0 ? new Rectangle(Width - height, 0, height, height) : Rectangle.Empty;
-			}
-		}
+        /// <summary>
+        /// The top right rectangle in auto hide strip area.
+        /// </summary>
+        protected Rectangle RectangleTopRight
+        {
+            get
+            {
+                int standard = MeasureHeight();
+                var padding = DockPanel.Theme.Measures.DockPadding;
+                var width = PanesRight.Count > 0 ? standard : padding;
+                var height = PanesTop.Count > 0 ? standard : padding;
+                return new Rectangle(Width - width, 0, width, height);
+            }
+        }
 
-		protected Rectangle RectangleBottomLeft
-		{
-			get
-			{
-				int height = MeasureHeight();
-				return PanesBottom.Count > 0 && PanesLeft.Count > 0 ? new Rectangle(0, Height - height, height, height) : Rectangle.Empty;
-			}
-		}
+        /// <summary>
+        /// The bottom left rectangle in auto hide strip area.
+        /// </summary>
+        protected Rectangle RectangleBottomLeft
+        {
+            get
+            {
+                int standard = MeasureHeight();
+                var padding = DockPanel.Theme.Measures.DockPadding;
+                var width = PanesLeft.Count > 0 ? standard : padding;
+                var height = PanesBottom.Count > 0 ? standard : padding;
+                return new Rectangle(0, Height - height, width, height);
+            }
+        }
 
-		protected Rectangle RectangleBottomRight
-		{
-			get
-			{
-				int height = MeasureHeight();
-				return PanesBottom.Count > 0 && PanesRight.Count > 0 ? new Rectangle(Width - height, Height - height, height, height) : Rectangle.Empty;
-			}
-		}
+        /// <summary>
+        /// The bottom right rectangle in auto hide strip area.
+        /// </summary>
+        protected Rectangle RectangleBottomRight
+        {
+            get
+            {
+                int standard = MeasureHeight();
+                var padding = DockPanel.Theme.Measures.DockPadding;
+                var width = PanesRight.Count > 0 ? standard : padding;
+                var height = PanesBottom.Count > 0 ? standard : padding;
+                return new Rectangle(Width - width, Height - height, width, height);
+            }
+        }
 
-		protected internal Rectangle GetTabStripRectangle(DockState dockState)
-		{
-			int height = MeasureHeight();
-			if (dockState == DockState.DockTopAutoHide && PanesTop.Count > 0)
-				return new Rectangle(RectangleTopLeft.Width, 0, Width - RectangleTopLeft.Width - RectangleTopRight.Width, height);
-			else if (dockState == DockState.DockBottomAutoHide && PanesBottom.Count > 0)
-				return new Rectangle(RectangleBottomLeft.Width, Height - height, Width - RectangleBottomLeft.Width - RectangleBottomRight.Width, height);
-			else if (dockState == DockState.DockLeftAutoHide && PanesLeft.Count > 0)
-				return new Rectangle(0, RectangleTopLeft.Width, height, Height - RectangleTopLeft.Height - RectangleBottomLeft.Height);
-			else if (dockState == DockState.DockRightAutoHide && PanesRight.Count > 0)
-				return new Rectangle(Width - height, RectangleTopRight.Width, height, Height - RectangleTopRight.Height - RectangleBottomRight.Height);
-			else
-				return Rectangle.Empty;
-		}
+        /// <summary>
+        /// Gets one of the four auto hide strip rectangles.
+        /// </summary>
+        /// <param name="dockState">Dock state.</param>
+        /// <returns>The desired rectangle.</returns>
+        /// <remarks>
+        /// As the corners are represented by <see cref="RectangleTopLeft"/>, <see cref="RectangleTopRight"/>, <see cref="RectangleBottomLeft"/>, and <see cref="RectangleBottomRight"/>,
+        /// the four strips can be easily calculated out as the borders.
+        /// </remarks>
+        protected internal Rectangle GetTabStripRectangle(DockState dockState)
+        {
+            if (dockState == DockState.DockTopAutoHide)
+                return new Rectangle(RectangleTopLeft.Width, 0, Width - RectangleTopLeft.Width - RectangleTopRight.Width, RectangleTopLeft.Height);
 
-		private GraphicsPath m_displayingArea = null;
-		private GraphicsPath DisplayingArea
-		{
-			get
-			{
-				if (m_displayingArea == null)
-					m_displayingArea = new GraphicsPath();
+            if (dockState == DockState.DockBottomAutoHide)
+                return new Rectangle(RectangleBottomLeft.Width, Height - RectangleBottomLeft.Height, Width - RectangleBottomLeft.Width - RectangleBottomRight.Width, RectangleBottomLeft.Height);
 
-				return m_displayingArea;
-			}
-		}
+            if (dockState == DockState.DockLeftAutoHide)
+                return new Rectangle(0, RectangleTopLeft.Height, RectangleTopLeft.Width, Height - RectangleTopLeft.Height - RectangleBottomLeft.Height);
 
-		private void SetRegion()
-		{
-			DisplayingArea.Reset();
-			DisplayingArea.AddRectangle(RectangleTopLeft);
-			DisplayingArea.AddRectangle(RectangleTopRight);
-			DisplayingArea.AddRectangle(RectangleBottomLeft);
-			DisplayingArea.AddRectangle(RectangleBottomRight);
-			DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockTopAutoHide));
-			DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockBottomAutoHide));
-			DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockLeftAutoHide));
-			DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockRightAutoHide));
-			Region = new Region(DisplayingArea);
-		}
+            if (dockState == DockState.DockRightAutoHide)
+                return new Rectangle(Width - RectangleTopRight.Width, RectangleTopRight.Height, RectangleTopRight.Width, Height - RectangleTopRight.Height - RectangleBottomRight.Height);
 
-		protected override void OnMouseDown(MouseEventArgs e)
-		{
-			base.OnMouseDown(e);
+            return Rectangle.Empty;
+        }
 
-			if (e.Button != MouseButtons.Left)
-				return;
+        private GraphicsPath m_displayingArea;
 
-			IDockContent content = HitTest();
-			if (content == null)
-				return;
+        private GraphicsPath DisplayingArea
+        {
+            get
+            {
+                if (m_displayingArea == null)
+                    m_displayingArea = new GraphicsPath();
 
-			content.DockHandler.Activate();
-		}
+                return m_displayingArea;
+            }
+        }
 
-		protected override void OnMouseHover(EventArgs e)
-		{
-			base.OnMouseHover(e);
+        private void SetRegion()
+        {
+            DisplayingArea.Reset();
+            DisplayingArea.AddRectangle(RectangleTopLeft);
+            DisplayingArea.AddRectangle(RectangleTopRight);
+            DisplayingArea.AddRectangle(RectangleBottomLeft);
+            DisplayingArea.AddRectangle(RectangleBottomRight);
+            DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockTopAutoHide));
+            DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockBottomAutoHide));
+            DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockLeftAutoHide));
+            DisplayingArea.AddRectangle(GetTabStripRectangle(DockState.DockRightAutoHide));
+            Region = new Region(DisplayingArea);
+        }
 
-			IDockContent content = HitTest();
-			if (content != null && DockPanel.ActiveAutoHideContent != content)
-				DockPanel.ActiveAutoHideContent = content;
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
 
-			// requires further tracking of mouse hover behavior,
+            if (e.Button != MouseButtons.Left)
+                return;
+
+            IDockContent content = HitTest();
+            if (content == null)
+                return;
+
+            SetActiveAutoHideContent(content);
+
+            content.DockHandler.Activate();
+        }
+
+        protected override void OnMouseHover(EventArgs e)
+        {
+            base.OnMouseHover(e);
+
+            if (!DockPanel.ShowAutoHideContentOnHover)
+                return;
+
+            // IMPORTANT: VS2003/2005 themes only.
+            IDockContent content = HitTest();
+            SetActiveAutoHideContent(content);
+
+            // requires further tracking of mouse hover behavior,
             ResetMouseEventArgs();
-		}
+        }
 
-		protected override void OnLayout(LayoutEventArgs levent)
-		{
-			RefreshChanges();
-			base.OnLayout (levent);
-		}
+        private void SetActiveAutoHideContent(IDockContent content)
+        {
+            if (content != null)
+                if (DockPanel.ActiveAutoHideContent != content)
+                    DockPanel.ActiveAutoHideContent = content;
+                else if (!DockPanel.ShowAutoHideContentOnHover)
+                    DockPanel.ActiveAutoHideContent = null; // IMPORTANT: Not needed for VS2003/2005 themes.
+        }
 
-		internal void RefreshChanges()
-		{
+        protected override void OnLayout(LayoutEventArgs levent)
+        {
+            RefreshChanges();
+            base.OnLayout (levent);
+        }
+
+        internal void RefreshChanges()
+        {
             if (IsDisposed)
                 return;
 
-			SetRegion();
-			OnRefreshChanges();
-		}
+            SetRegion();
+            OnRefreshChanges();
+        }
 
-		protected virtual void OnRefreshChanges()
-		{
-		}
+        protected virtual void OnRefreshChanges()
+        {
+        }
 
-		protected internal abstract int MeasureHeight();
+        protected internal abstract int MeasureHeight();
 
-		private IDockContent HitTest()
-		{
-			Point ptMouse = PointToClient(Control.MousePosition);
-			return HitTest(ptMouse);
-		}
+        private IDockContent HitTest()
+        {
+            Point ptMouse = PointToClient(Control.MousePosition);
+            return HitTest(ptMouse);
+        }
 
         protected virtual Tab CreateTab(IDockContent content)
         {
@@ -525,6 +552,195 @@ namespace WeifenLuo.WinFormsUI.Docking
             return new Pane(dockPane);
         }
 
-		protected abstract IDockContent HitTest(Point point);
-	}
+        protected abstract IDockContent HitTest(Point point);
+
+        protected override AccessibleObject CreateAccessibilityInstance()
+        {
+            return new AutoHideStripsAccessibleObject(this);
+        }
+
+        protected abstract Rectangle GetTabBounds(Tab tab);
+
+        internal static Rectangle ToScreen(Rectangle rectangle, Control parent)
+        {
+            if (parent == null)
+                return rectangle;
+
+            return new Rectangle(parent.PointToScreen(new Point(rectangle.Left, rectangle.Top)), new Size(rectangle.Width, rectangle.Height));
+        }
+
+        public class AutoHideStripsAccessibleObject : Control.ControlAccessibleObject
+        {
+            private AutoHideStripBase _strip;
+
+            public AutoHideStripsAccessibleObject(AutoHideStripBase strip)
+                : base(strip)
+            {
+                _strip = strip;
+            }
+
+            public override AccessibleRole Role
+            {
+                get
+                {
+                    return AccessibleRole.Window;
+                }
+            }
+
+            public override int GetChildCount()
+            {
+                // Top, Bottom, Left, Right
+                return 4;
+            }
+
+            public override AccessibleObject GetChild(int index)
+            {
+                switch (index)
+                {
+                    case 0:
+                        return new AutoHideStripAccessibleObject(_strip, DockState.DockTopAutoHide, this);
+                    case 1:
+                        return new AutoHideStripAccessibleObject(_strip, DockState.DockBottomAutoHide, this);						
+                    case 2:
+                        return new AutoHideStripAccessibleObject(_strip, DockState.DockLeftAutoHide, this);
+                    case 3:
+                    default:
+                        return new AutoHideStripAccessibleObject(_strip, DockState.DockRightAutoHide, this);
+                }
+            }
+
+            public override AccessibleObject HitTest(int x, int y)
+            {
+                Dictionary<DockState, Rectangle> rectangles = new Dictionary<DockState, Rectangle> {
+                    { DockState.DockTopAutoHide,    _strip.GetTabStripRectangle(DockState.DockTopAutoHide) },
+                    { DockState.DockBottomAutoHide, _strip.GetTabStripRectangle(DockState.DockBottomAutoHide) },
+                    { DockState.DockLeftAutoHide,   _strip.GetTabStripRectangle(DockState.DockLeftAutoHide) },
+                    { DockState.DockRightAutoHide,  _strip.GetTabStripRectangle(DockState.DockRightAutoHide) },
+                };
+
+                Point point = _strip.PointToClient(new Point(x, y));
+                foreach (var rectangle in rectangles)
+                {
+                    if (rectangle.Value.Contains(point))
+                        return new AutoHideStripAccessibleObject(_strip, rectangle.Key, this);
+                }
+
+                return null;
+            }
+        }
+
+        public class AutoHideStripAccessibleObject : AccessibleObject
+        {
+            private AutoHideStripBase _strip;
+            private DockState _state;
+            private AccessibleObject _parent;
+
+            public AutoHideStripAccessibleObject(AutoHideStripBase strip, DockState state, AccessibleObject parent)
+            {
+                _strip = strip;
+                _state = state;
+
+                _parent = parent;
+            }
+
+            public override AccessibleObject Parent
+            {
+                get
+                {
+                    return _parent;
+                }
+            }
+
+            public override AccessibleRole Role
+            {
+                get
+                {
+                    return AccessibleRole.PageTabList;
+                }
+            }
+
+            public override int GetChildCount()
+            {
+                int count = 0;
+                foreach (Pane pane in _strip.GetPanes(_state))
+                {
+                    count += pane.AutoHideTabs.Count;
+                }
+                return count;
+            }
+
+            public override AccessibleObject GetChild(int index)
+            {
+                List<Tab> tabs = new List<Tab>();
+                foreach (Pane pane in _strip.GetPanes(_state))
+                {
+                    tabs.AddRange(pane.AutoHideTabs);
+                }
+
+                return new AutoHideStripTabAccessibleObject(_strip, tabs[index], this);
+            }
+
+            public override Rectangle Bounds
+            {
+                get
+                {
+                    Rectangle rectangle = _strip.GetTabStripRectangle(_state);
+                    return ToScreen(rectangle, _strip);
+                }
+            }
+        }
+
+        protected class AutoHideStripTabAccessibleObject : AccessibleObject
+        {
+            private AutoHideStripBase _strip;
+            private Tab _tab;
+
+            private AccessibleObject _parent;
+
+            internal AutoHideStripTabAccessibleObject(AutoHideStripBase strip, Tab tab, AccessibleObject parent)
+            {
+                _strip = strip;
+                _tab = tab;
+
+                _parent = parent;
+            }
+
+            public override AccessibleObject Parent
+            {
+                get
+                {
+                    return _parent;
+                }
+            }
+
+            public override AccessibleRole Role
+            {
+                get
+                {
+                    return AccessibleRole.PageTab;
+                }
+            }
+
+            public override Rectangle Bounds
+            {
+                get
+                {
+                    Rectangle rectangle = _strip.GetTabBounds(_tab);
+                    return ToScreen(rectangle, _strip);
+                }
+            }
+
+            public override string Name
+            {
+                get
+                {
+                    return _tab.Content.DockHandler.TabText;
+                }
+                set
+                {
+                    //base.Name = value;
+                }
+            }
+        }
+    }
 }
