@@ -344,7 +344,7 @@ namespace DbgHelpAPI
         IntPtr hProcess;
         static Random mRandom = new Random();
         static FileMap mFileMap = new FileMap();
-        string mReactosOutputPath = "output-i386", mReactosSourcePath = ".";
+        string mReactosOutputPath = "output-MinGW-i386", mReactosSourcePath = ".";
 
         public string ReactosOutputPath
         {
