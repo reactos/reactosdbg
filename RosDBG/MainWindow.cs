@@ -401,6 +401,12 @@ namespace RosDBG
             about.ShowDialog(this); 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            dockPanel.ActiveDocumentChanged -= dockPanel_ActiveDocumentChanged;
+        }
+
         private void dockPanel_ActiveDocumentChanged(object sender, EventArgs e)
         {
             try
